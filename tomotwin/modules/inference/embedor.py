@@ -85,7 +85,7 @@ class TorchEmbedor(Embedor):
     def load_weights_(self):
         checkpoint = None
         if self.weightspth is not None:
-            checkpoint = torch.load(self.weightspth)
+            checkpoint = torch.load(self.weightspth, weights_only=False)
             self.tomotwin_config = checkpoint["tomotwin_config"]
             print("Model config:")
             print(self.tomotwin_config)
@@ -175,7 +175,7 @@ class TorchEmbedorDistributed(Embedor):
         """
         checkpoint = None
         if self.weightspth is not None:
-            checkpoint = torch.load(self.weightspth)
+            checkpoint = torch.load(self.weightspth, weights_only=False)
             self.tomotwin_config = checkpoint["tomotwin_config"]
             if self.rank == 0:
                 print("Model config:")

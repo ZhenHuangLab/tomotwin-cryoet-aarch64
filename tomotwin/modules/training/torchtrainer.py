@@ -342,7 +342,7 @@ class TorchTrainer(Trainer):
         """
 
         try:
-            self.checkpoint = torch.load(checkpoint)
+            self.checkpoint = torch.load(checkpoint, weights_only=False)
         except FileNotFoundError:
             print(f"Checkpoint {checkpoint} can't be found. Ignore it.")
             self.checkpoint = None

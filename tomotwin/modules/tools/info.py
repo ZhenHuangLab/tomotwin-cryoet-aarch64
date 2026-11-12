@@ -69,7 +69,7 @@ class Info(TomoTwinTool):
 
         if try_torch:
             import torch
-            checkpoint = torch.load(path_file)
+            checkpoint = torch.load(path_file, weights_only=False)
             print("#######################")
             print("Torch Model Info:")
             print("#######################")
